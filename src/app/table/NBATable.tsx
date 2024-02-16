@@ -1,6 +1,5 @@
 // components/NBATable.tsx
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
-import Image from 'next/image';
 import Player from '../models/Player';
 
 interface NBATableProps {
@@ -27,7 +26,6 @@ const NBATable: React.FC<NBATableProps> = ({ players }) => {
           {players.map((player) => (
             <TableRow key={player.id}>
               <TableCell>
-                <Image src={player.imageUrl} alt={player.name} width={50} height={50} style={{ borderRadius: '50%' }} />
               </TableCell>
               <TableCell>{player.name}</TableCell>
               <TableCell>{player.prop}</TableCell>
