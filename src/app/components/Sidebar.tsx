@@ -11,7 +11,6 @@ import {
 } from "@mui/icons-material";
 import Link from "next/link";
 import {
-  Divider,
   Typography,
   ListItemButton,
   ListItemIcon,
@@ -25,17 +24,13 @@ const drawerWidth = 240;
 const navItems = [
   { text: "Dashboard", icon: <Dashboard />, href: "/" },
   { text: "NBA Tables", icon: <Dashboard />, href: "/table" },
-  {
-    text: "Notifications",
-    icon: <Notifications />,
-    href: "/notifications",
-  },
-  { text: "Analytics", icon: <Analytics />, href: "/analytics" },
-  { text: "Likes", icon: <Favorite />, href: "/likes" },
-  { text: "Wallets", icon: <AccountBalanceWallet />, href: "/wallets" },
-  { text: "Messages", icon: <Message />, href: "/messages" },
-  { text: "Logout", icon: <ExitToApp />, href: "/logout" },
-  { text: "Settings", icon: <Settings />, href: "/settings" },
+  { text: "Notifications", icon: <Notifications /> },
+  { text: "Analytics", icon: <Analytics /> },
+  { text: "Likes", icon: <Favorite /> },
+  { text: "Wallets", icon: <AccountBalanceWallet /> },
+  { text: "Messages", icon: <Message /> },
+  { text: "Logout", icon: <ExitToApp /> },
+  { text: "Settings", icon: <Settings /> },
 ];
 
 const Sidebar = () => {
@@ -56,14 +51,21 @@ const Sidebar = () => {
         DJ Props Betting App
       </Typography>
       <List>
-        {navItems.map((item) => (
-          <Link key={item.text} href={item.href} passHref>
+        {navItems.map((item) =>
+          item.href ? (
+            <Link key={item.text} href={item.href} passHref>
+              <ListItemButton>
+                <ListItemIcon>{item.icon}</ListItemIcon>
+                <ListItemText primary={item.text} />
+              </ListItemButton>
+            </Link>
+          ) : (
             <ListItemButton>
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
             </ListItemButton>
-          </Link>
-        ))}
+          ),
+        )}
       </List>
     </Drawer>
   );
