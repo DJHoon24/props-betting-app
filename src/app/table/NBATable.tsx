@@ -1,6 +1,14 @@
 // components/NBATable.tsx
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
-import Player from '../models/Player';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+} from "@mui/material";
+import Player from "../models/Player";
 
 interface NBATableProps {
   players: Player[];
@@ -25,8 +33,7 @@ const NBATable: React.FC<NBATableProps> = ({ players }) => {
         <TableBody>
           {players.map((player) => (
             <TableRow key={player.id}>
-              <TableCell>
-              </TableCell>
+              <TableCell></TableCell>
               <TableCell>{player.name}</TableCell>
               <TableCell>{player.prop}</TableCell>
               <TableCell>{player.last5Games}</TableCell>
@@ -40,6 +47,6 @@ const NBATable: React.FC<NBATableProps> = ({ players }) => {
       </Table>
     </TableContainer>
   );
-}
+};
 
 export default NBATable;
